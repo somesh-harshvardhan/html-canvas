@@ -65,19 +65,19 @@ const distance = function (x1, y1, x2, y2) {
           mouse.radius + this.radius
         ) {
           if (this.x < mouse.x && this.x > this.radius * 10) {
-            this.x += -push;
+            this.x += -push * .3;
             this.dx = -this.dx;
           }
           if (this.x > mouse.x && this.x < canvas.width - this.radius * 10) {
-            this.x += push;
+            this.x += push * .3;
             this.dx = -this.dx;
           }
           if (this.y < mouse.y && this.y > this.radius * 10) {
-            this.y += -push;
+            this.y += -push * .3;
             this.dy = -this.dy;
           }
           if (this.y > mouse.y && this.y < canvas.height - this.radius * 10) {
-            this.y += push;
+            this.y += push * .3;
             this.dy = -this.dy;
           }
         }
@@ -100,15 +100,15 @@ const distance = function (x1, y1, x2, y2) {
         }
 
         // sun ray effect
-        if (this.index % 2 === 0) {
-          context.beginPath();
-          context.moveTo(this.x, this.y);
-          context.lineTo(mouse.x, mouse.y);
-          context.strokeStyle = "white";
-          context.lineWidth = ".2";
-          context.stroke();
-          context.closePath();
-        }
+        // if (this.index % 2 === 0) {
+        //   context.beginPath();
+        //   context.moveTo(this.x, this.y);
+        //   context.lineTo(mouse.x, mouse.y);
+        //   context.strokeStyle = "white";
+        //   context.lineWidth = ".2";
+        //   context.stroke();
+        //   context.closePath();
+        // }
 
         this.x += this.dx;
         this.y += this.dy;
