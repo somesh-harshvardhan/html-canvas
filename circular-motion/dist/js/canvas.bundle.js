@@ -168,8 +168,8 @@ var Particle = /*#__PURE__*/function () {
       };
 
       // drag effect
-      this.lastMouse.x += (mouse.x - this.lastMouse.x) * 0.05;
-      this.lastMouse.y += (mouse.y - this.lastMouse.y) * 0.05;
+      this.lastMouse.x += (mouse.x - this.lastMouse.x) * 0.03;
+      this.lastMouse.y += (mouse.y - this.lastMouse.y) * 0.03;
 
       // circular motion
       this.radians += this.velocity;

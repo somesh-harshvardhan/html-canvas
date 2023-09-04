@@ -54,9 +54,9 @@ class Particle {
     const lastPoint = {x : this.x,y : this.y}
 
     // drag effect
-    this.lastMouse.x += (mouse.x  - this.lastMouse.x) * 0.05;
-    this.lastMouse.y += (mouse.y - this.lastMouse.y) * 0.05
-
+    this.lastMouse.x += (mouse.x  - this.lastMouse.x) *  0.03
+    this.lastMouse.y += (mouse.y - this.lastMouse.y) *  0.03
+    
     // circular motion
     this.radians += this.velocity
     this.x = this.lastMouse.x +  Math.cos(this.radians) * this.disatanceFromCenter;

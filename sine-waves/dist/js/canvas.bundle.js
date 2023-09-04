@@ -2652,8 +2652,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var gui = new dat_gui__WEBPACK_IMPORTED_MODULE_1__.GUI();
-var canvas = document.querySelector('canvas');
-var c = canvas.getContext('2d');
+var canvas = document.querySelector("canvas");
+var c = canvas.getContext("2d");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 var mouse = {
@@ -2663,16 +2663,27 @@ var mouse = {
 var wave = {
   y: canvas.height / 2,
   length: 0.01,
-  amplitude: 100
+  amplitude: 100,
+  frequency: 0.01
 };
-gui.add(wave, 'y', 0, canvas.height);
-var colors = ['#2185C5', '#7ECEFD', '#FFF6E5', '#FF7F66'];
-c.beginPath();
-c.moveTo(0, canvas.height / 2);
-for (var i = 0; i < canvas.width; i++) {
-  c.lineTo(i, canvas.height / 2 + Math.sin(i * 0.01) * 100);
+gui.add(wave, "y", 0, canvas.height);
+gui.add(wave, "length", -0.01, 0.01);
+gui.add(wave, "amplitude", -300, 300);
+gui.add(wave, "frequency", 0.01, 1);
+var colors = ["#2185C5", "#7ECEFD", "#FFF6E5", "#FF7F66"];
+var increment = wave.frequency;
+function animate() {
+  requestAnimationFrame(animate);
+  c.clearRect(0, 0, canvas.width, canvas.height);
+  c.beginPath();
+  c.moveTo(0, canvas.height / 2);
+  for (var i = 0; i < canvas.width; i++) {
+    c.lineTo(i, wave.y + Math.sin(i * wave.length + increment) * wave.amplitude);
+  }
+  c.stroke();
+  increment += wave.frequency;
 }
-c.stroke();
+animate();
 })();
 
 /******/ })()
